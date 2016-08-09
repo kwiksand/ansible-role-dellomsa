@@ -3,3 +3,10 @@
 
 - name: RedHat | Install Dell System Update
   yum: name=dell-system-update state=latest
+
+- name: RedHat | Install Required libraries
+  yum: name="{{ item }}" state=present
+  with_items:
+    - "compat-libstdc++-33.i686"
+    - "libstdc++.i686"
+    - "libxml2.i686"
