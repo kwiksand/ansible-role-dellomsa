@@ -1,0 +1,8 @@
+---
+# defaults file for ansible-role-dellomsa/
+
+install_dellomsa: true
+install_dell_system_update: true
+
+dellomsa_package_list: 
+  - "srvadmin-all"

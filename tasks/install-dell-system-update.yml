@@ -1,0 +1,5 @@
+---
+# tasks file for ansible-role-dellomsa/
+
+- name: RedHat | Install Dell System Update
+  yum: name=dell-system-update state=latest

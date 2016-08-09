@@ -1,0 +1,13 @@
+---
+# tasks file for ansible-role-dellomsa/
+
+- name: RedHat | Install Dell OMSA Server Administration
+  yum: name={{ item }} state=latest
+  with_items: "{{ dellomsa_package_list }}"
+  notify: Restart Dell OMSA 
+
+- name: Restart Dell OMSA
+  service:
+    name: dataeng
+    state: started
+    enabled: yes

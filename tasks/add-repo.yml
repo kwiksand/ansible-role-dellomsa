@@ -1,0 +1,16 @@
+---
+# tasks file for ansible-role-dellomsa/
+
+- name: RedHat | Download Dell Linux GPG Key
+  get_url: url=http://linux.dell.com/repo/hardware/latest/public.key dest=/etc/pki/rpm-gpg/RPM-GPG-KEY-dell-system-update owner=root group=root mode=0644
+
+- name:  RedHat | Install the Dell Linux GPG Key
+  rpm_key: state=present key=/etc/pki/rpm-gpg/RPM-GPG-KEY-dell-system-update
+
+- name: RedHat | Install YUM Repo description/file
+  copy:
+    src: dell-system-update.repo
+    dest: /etc/yum.repos.d/dell-system-update.repo
+    owner: root
+    group: root
+    mode: 0644
